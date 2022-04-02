@@ -1,0 +1,391 @@
+[gd_scene load_steps=10 format=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 100, 0.2, 30 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 200, 0.1, 60 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 10, 25, 0.1 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 20, 50, 0.2 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 10, 10, 0.1 )
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 20, 20, 0.2 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 10, 4, 0.1 )
+
+[sub_resource type="CubeMesh" id=9]
+size = Vector3( 20, 8, 0.2 )
+
+[node name="PlaneTrunk" type="Spatial"]
+
+[node name="Floor" type="StaticBody" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Roof" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Roof"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Roof"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="WallsL" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, -30 )
+
+[node name="WallPiece" type="StaticBody" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/WallPiece"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/WallPiece"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="Spatial" type="Spatial" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 0 )
+
+[node name="WallPiece2" type="StaticBody" parent="WallsL/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/Spatial/WallPiece2"]
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/Spatial/WallPiece2"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece3" type="StaticBody" parent="WallsL/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/Spatial/WallPiece3"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/Spatial/WallPiece3"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 3 )
+
+[node name="Spatial2" type="Spatial" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+
+[node name="WallPiece2" type="StaticBody" parent="WallsL/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/Spatial2/WallPiece2"]
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/Spatial2/WallPiece2"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece3" type="StaticBody" parent="WallsL/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/Spatial2/WallPiece3"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/Spatial2/WallPiece3"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 3 )
+
+[node name="Spatial3" type="Spatial" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0 )
+
+[node name="WallPiece2" type="StaticBody" parent="WallsL/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/Spatial3/WallPiece2"]
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/Spatial3/WallPiece2"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece3" type="StaticBody" parent="WallsL/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/Spatial3/WallPiece3"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/Spatial3/WallPiece3"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece3" type="StaticBody" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/WallPiece3"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/WallPiece3"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece5" type="StaticBody" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/WallPiece5"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/WallPiece5"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece7" type="StaticBody" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/WallPiece7"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/WallPiece7"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece9" type="StaticBody" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/WallPiece9"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/WallPiece9"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece10" type="StaticBody" parent="WallsL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsL/WallPiece10"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsL/WallPiece10"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallsR" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, -30 )
+
+[node name="WallPiece" type="StaticBody" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 60 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/WallPiece"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/WallPiece"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="Spatial" type="Spatial" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 60 )
+
+[node name="WallPiece2" type="StaticBody" parent="WallsR/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/Spatial/WallPiece2"]
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/Spatial/WallPiece2"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece3" type="StaticBody" parent="WallsR/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/Spatial/WallPiece3"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/Spatial/WallPiece3"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 3 )
+
+[node name="Spatial2" type="Spatial" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 60 )
+
+[node name="WallPiece2" type="StaticBody" parent="WallsR/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/Spatial2/WallPiece2"]
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/Spatial2/WallPiece2"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece3" type="StaticBody" parent="WallsR/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/Spatial2/WallPiece3"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/Spatial2/WallPiece3"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 3 )
+
+[node name="Spatial3" type="Spatial" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 60 )
+
+[node name="WallPiece2" type="StaticBody" parent="WallsR/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/Spatial3/WallPiece2"]
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/Spatial3/WallPiece2"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece3" type="StaticBody" parent="WallsR/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/Spatial3/WallPiece3"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/Spatial3/WallPiece3"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece3" type="StaticBody" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 60 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/WallPiece3"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/WallPiece3"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece5" type="StaticBody" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 60 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/WallPiece5"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/WallPiece5"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece7" type="StaticBody" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 60 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/WallPiece7"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/WallPiece7"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece9" type="StaticBody" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 60 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/WallPiece9"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/WallPiece9"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="WallPiece10" type="StaticBody" parent="WallsR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 60 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsR/WallPiece10"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WallsR/WallPiece10"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
