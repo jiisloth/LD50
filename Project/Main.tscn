@@ -66,6 +66,7 @@ __meta__ = {
 distanceTillSunk = 3.0
 
 [node name="MeshInstance" type="MeshInstance" parent="Platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 2 )
 
