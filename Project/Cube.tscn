@@ -7,7 +7,7 @@ albedo_color = Color( 0.74902, 0.0745098, 0.0745098, 1 )
 
 [sub_resource type="BoxShape" id=5]
 
-[node name="Cube" type="RigidBody" groups=["Moveable"]]
+[node name="Cube" type="RigidBody" groups=["Moveable", "Weight"]]
 transform = Transform( 0.85093, 0.428922, -0.303222, -0.525279, 0.694836, -0.491207, 0, 0.577259, 0.816561, -0.00180721, 7.64578, -5.98101 )
 __meta__ = {
 "_edit_group_": true
