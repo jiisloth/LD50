@@ -22,6 +22,7 @@ cast_to = Vector3( 0, 1, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94647, 7.10543e-15 )
 
 [node name="Camera" type="Camera" parent="Head"]
+current = true
 
 [node name="RayCast" type="RayCast" parent="Head/Camera"]
 enabled = true

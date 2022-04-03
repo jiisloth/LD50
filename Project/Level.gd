@@ -21,5 +21,5 @@ func init_platforms(radius):
 
 func add_platform(x,z):
     var platform = Platform.instance()
-    platform.transform.origin = Vector3(x*4.1, 3, z*4.1)
+    platform.transform.origin = Vector3(x*4.1, 1.5, z*4.1)
     add_child(platform)

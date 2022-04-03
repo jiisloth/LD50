@@ -29,7 +29,6 @@ func _checkIfSunken():
     if distanceTraveled >= distanceTillSunk:
         return true
     else:
-        print_debug(distanceTraveled)
         return false                    
 
 func _destroy():
