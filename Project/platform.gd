@@ -4,7 +4,7 @@ onready var areaCollider = $Area
 var numOfObjects = 0
 var distanceTraveled = 0
 export(float) var verticalVelocity = 1
-export(float) var distanceTillSunk = 10
+export(float) var distanceTillSunk = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,16 +17,14 @@ func _process(delta):
     _move_down(numOfObjects, delta)
     if _checkIfSunken():
         _destroy()
-    pass
 
 func _move_down(objectCount, delta):
-    var moveBy = -2 * objectCount * delta
+    var moveBy = -0.2 * objectCount * delta
     translate(Vector3(0, moveBy, 0))
     distanceTraveled += abs(moveBy)
-    pass
 
 func _checkIfSunken():
-    if distanceTraveled >= distanceTillSunk:
+    if transform.origin.y < -2:
         return true
     else:
         return false                    
@@ -35,10 +33,10 @@ func _destroy():
     queue_free()
 
 func _on_Area_body_entered(body):
-    if body.is_in_group("Weight"):
+    if body.is_in_group("Weight") or body.is_in_group("Player"):
         numOfObjects += 1
 
 
 func _on_Area_body_exited(body):
-    if body.is_in_group("Weight"):
+    if body.is_in_group("Weight") or body.is_in_group("Player"):
         numOfObjects -= 1
