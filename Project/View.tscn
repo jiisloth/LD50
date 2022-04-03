@@ -48,6 +48,8 @@ ambient_light_energy = 5.14
 fog_enabled = true
 fog_color = Color( 0, 0, 0, 1 )
 fog_depth_end = 62.3
+glow_enabled = true
+glow_blend_mode = 0
 
 [node name="View" type="CanvasLayer"]
 

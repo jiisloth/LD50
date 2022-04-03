@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Project"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://View.tscn"
 config/icon="res://icon.png"
 
 [autoload]
