@@ -8,7 +8,7 @@ uniform vec4 color2 : hint_color;
 uniform sampler2D noise;
 
 float height(vec2 pos, float time) {
-    return (0.1*sin(pos.x+time)+0.2*sin(pos.y*0.5+time*0.5));
+    return (0.05*sin(pos.x+time)*cos(time)+0.03*sin(pos.y*0.8+time*0.5));
    }
 
 void vertex() {
@@ -19,8 +19,12 @@ void vertex() {
    }
 
 void fragment() {
-    float noiseC = texture(noise, vec2(UV.x+sin(TIME*0.1)*0.1, UV.y+cos(TIME*0.1)*0.1)*2.0).r;
-    vec4 color = mix(color1, color2, noiseC+sin(TIME*1.5)*0.1);
+    
+    float noiseC = texture(noise, vec2(UV.x+sin(TIME*0.1)*0.1, UV.y+sin(TIME*0.2)*0.1)*5.0).r;
+    float noiseC2 = texture(noise, vec2(UV.x+cos(TIME*0.1)*0.01, UV.y+cos(TIME*0.1)*0.01)*20.0).r;
+    vec4 colorA = mix(color1, color2, noiseC+sin(TIME*1.5)*0.1);
+    vec4 colorB = mix(color2, color1, noiseC2+cos(TIME*1.5)*0.1);
+    vec4 color = mix(colorA, colorB, 0.5);
     ALBEDO = color.rgb;
 }"
 
@@ -34,6 +38,6 @@ noise = SubResource( 6 )
 
 [resource]
 shader = SubResource( 5 )
-shader_param/color1 = Color( 1, 0.701961, 0, 1 )
+shader_param/color1 = Color( 1, 0.796078, 0, 1 )
 shader_param/color2 = Color( 1, 0, 0, 1 )
 shader_param/noise = SubResource( 7 )
