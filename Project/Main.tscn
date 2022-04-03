@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/Materials/platform_material.tres" type="Material" id=2]
-[ext_resource path="res://platform.gd" type="Script" id=3]
+[ext_resource path="res://Platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Cube.tscn" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=1]
@@ -13,13 +12,6 @@ size = Vector3( 100, 2, 100 )
 
 [sub_resource type="CapsuleShape" id=3]
 height = 2.0
-
-[sub_resource type="CubeMesh" id=4]
-
-[sub_resource type="BoxShape" id=5]
-
-[sub_resource type="BoxShape" id=6]
-extents = Vector3( 1, 0.0644596, 1 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -57,31 +49,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.301039, 0 )
 enabled = true
 cast_to = Vector3( 0, 1, 0 )
 
-[node name="Platform" type="StaticBody" parent="."]
-transform = Transform( 3, 0, 0, 0, 3.753, 0, 0, 0, 3, 0, 9.68673, 0 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-distanceTillSunk = 3.0
-
-[node name="MeshInstance" type="MeshInstance" parent="Platform"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Platform"]
-shape = SubResource( 5 )
-
-[node name="Area" type="Area" parent="Platform"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.882711, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Platform/Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18259, 0 )
-shape = SubResource( 6 )
+[node name="Platform" parent="." instance=ExtResource( 2 )]
 
 [node name="Cube" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112856, 16.6297, 1.61922 )
-
-[connection signal="body_entered" from="Platform/Area" to="Platform" method="_on_Area_body_entered"]
-[connection signal="body_exited" from="Platform/Area" to="Platform" method="_on_Area_body_exited"]

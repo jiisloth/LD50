@@ -5,7 +5,7 @@ export(PackedScene) var Cube
 
 var delay = 2
 
-var drop_area = 5
+var drop_area = 40
 
 func _on_Timer_timeout():
     var cube = Cube.instance()

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://Magma.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CubeDropper.tscn" type="PackedScene" id=4]
+
+[node name="Level" type="Spatial"]
+script = ExtResource( 1 )
+Platform = ExtResource( 3 )
+
+[node name="Magma" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.9869, 41.9627 )
+
+[node name="CubeDropper" parent="." instance=ExtResource( 4 )]
