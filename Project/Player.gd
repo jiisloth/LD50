@@ -22,13 +22,14 @@ onready var raycast = $Head/Camera/RayCast
 var orb_value = 0
 var coyote = 10
 var dead = false
+var bunnyboost = 0
+var time_on_ground = 0
 
 func orb_get():
     orb_value -= 1
     $OrbGet.pitch_scale = 0.7+randf()*0.2
     $OrbGet.play()
-    if orb_value < 0:
-        orb_value = 0
+    orb_value = 0
 
 func _process(delta):
     orb_value += delta*0.07
@@ -36,6 +37,8 @@ func _process(delta):
         dead = true
 
 func _ready():
+    mouse_sensitivity = Global.sens
+    $Head/Camera.fov = Global.fov
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -52,6 +55,9 @@ func _input(event):
 
 func _physics_process(delta):
     coyote += delta
+    time_on_ground += delta
+    if time_on_ground > 0.15:
+        bunnyboost = 0
     direction = Vector3()
 
     full_contact = ground_check.is_colliding()
@@ -59,11 +65,20 @@ func _physics_process(delta):
     if not is_on_floor():
         gravity_vec += Vector3.DOWN * gravity * delta
         h_acceleration = air_acceleration
+        time_on_ground = 0
     elif is_on_floor() and full_contact:
+        if coyote > 0.2:
+            $Land.pitch_scale = 0.5+randf()*0.4
+            $Land.volume_db = min(-15, coyote*10-40)
+            $Land.play()
         coyote = 0
         gravity_vec = -get_floor_normal() * gravity
         h_acceleration = normal_acceleration
     else:
+        if coyote > 0.2:
+            $Land.pitch_scale = 0.5+randf()*0.4
+            $Land.volume_db = min(-15, coyote*10-40)
+            $Land.play()
         coyote = 0
         gravity_vec = -get_floor_normal()
         h_acceleration = normal_acceleration
@@ -71,7 +86,12 @@ func _physics_process(delta):
     var current_jump = max(jump-orb_value,5)
     if Input.is_action_just_pressed("jump") and (coyote < 0.3 or is_on_floor() or ground_check.is_colliding()):
         coyote = 1
+        $Jump.pitch_scale = 0.8+randf()*0.2
+        $Jump.play()
+        if time_on_ground < 0.1:
+            bunnyboost += 1
         gravity_vec = Vector3.UP * current_jump
+
     if Input.is_action_pressed("forward"):
         direction -= transform.basis.z
     elif Input.is_action_pressed("backward"):
@@ -80,8 +100,15 @@ func _physics_process(delta):
         direction -= transform.basis.x
     elif Input.is_action_pressed("strafe_right"):
         direction += transform.basis.x
-    var current_speed = max(speed-orb_value,5)
+        
+            
+    
+
+    if not Input.is_action_pressed("forward"):
+        bunnyboost = 0
+    var current_speed = max(speed-orb_value+bunnyboost*0.3,5)
     direction = direction.normalized()
+    
     h_velocity = h_velocity.linear_interpolate(direction * current_speed, h_acceleration * delta)
     movement.z = h_velocity.z + gravity_vec.z
     movement.x = h_velocity.x + gravity_vec.x

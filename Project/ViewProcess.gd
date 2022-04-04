@@ -9,6 +9,8 @@ func _process(delta):
     if len(players) > 0:
         if players[0].dead:
             if dead == 0:
+                if has_node("Guide"):
+                    $Guide.queue_free()
                 $AudioStreamPlayer.play()
                 set_text()
                 material.set_shader_param("tint_mix", 1.0)
@@ -17,7 +19,10 @@ func _process(delta):
                 $you_dead_text.modulate.a = (dead-1)/4.0
             if dead > 5:
                 if Input.is_action_just_pressed("jump"):
-                    get_tree().reload_current_scene()
+                    if get_parent().get_parent().has_method("restart_lvl"):
+                        get_parent().get_parent().restart_lvl()
+                    else:
+                        get_tree().reload_current_scene()
                 $Restart.modulate.a = (dead-5)/4.0
                 
             return
@@ -39,6 +44,3 @@ func set_text():
 
 
 
-
-func _on_Control_gui_input(event):
-    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

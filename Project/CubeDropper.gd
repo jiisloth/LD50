@@ -40,3 +40,4 @@ func _on_Timer2_timeout():
     var drop_point = orb_drops[randi()%len(orb_drops)] + Vector2(randf()*2.0-1.0,randf()*2.0-1.0)
     orb.transform.origin = Vector3(drop_point.x, 30, drop_point.y)
     add_child(orb)
+    $Timer2.start(10+randi()%2)

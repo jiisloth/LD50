@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/eeriestart.mp3-cc5e42b6043abd1378601f85a59a0302.mp3str"
+
+[deps]
+
+source_file="res://assets/eeriestart.mp3"
+dest_files=[ "res://.import/eeriestart.mp3-cc5e42b6043abd1378601f85a59a0302.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

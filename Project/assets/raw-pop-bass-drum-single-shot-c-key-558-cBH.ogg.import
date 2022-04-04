@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/raw-pop-bass-drum-single-shot-c-key-558-cBH.ogg-bf7ada0823670d37dcc80e624ffd6a19.oggstr"
+
+[deps]
+
+source_file="res://assets/raw-pop-bass-drum-single-shot-c-key-558-cBH.ogg"
+dest_files=[ "res://.import/raw-pop-bass-drum-single-shot-c-key-558-cBH.ogg-bf7ada0823670d37dcc80e624ffd6a19.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
