@@ -10,9 +10,13 @@ config_version=4
 
 [application]
 
-config/name="Project"
+config/name="LD50"
 run/main_scene="res://View.tscn"
 config/icon="res://icon.png"
+
+[audio]
+
+output_latency.web=100
 
 [autoload]
 
