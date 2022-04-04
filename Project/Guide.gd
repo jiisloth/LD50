@@ -20,7 +20,7 @@ func _process(delta):
             if Input.is_action_just_pressed("click") and age > 2:
                 state = "next"
                 age = 0
-            if age > 10:
+            if age > 12:
                 state = "next"
                 age = 0
         "next":
@@ -30,7 +30,7 @@ func _process(delta):
             if Input.is_action_just_pressed("click") and age > 2:
                 state = "fade"
                 age = 0
-            if age > 10:
+            if age > 15:
                 state = "fade"
                 age = 0
         "fade":
