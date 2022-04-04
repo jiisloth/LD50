@@ -21,9 +21,13 @@ func read_save():
     save = parse_json(file.get_as_text())
     file.close()
     $MusicSlider.value = save["music"]
+    $MusicLabel/Value.text = str(save["music"]) + "%"
     $SFXSlider.value = save["sfx"]
+    $SFXLabel/Value.text = str(save["sfx"]) + "%"
     $MouseSlider.value = save["mouse"]
+    $MouseLabel/Value.text = str(pow(save["mouse"],2)/10000)
     $FOVSlider.value = save["fov"]
+    $FOVLabel/Value.text = str(save["fov"])
 
 
 func init_save():

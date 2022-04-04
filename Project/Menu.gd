@@ -21,6 +21,7 @@ func _process(delta):
         age += delta
         if age > 0.2:
             if Input.is_action_just_pressed("click"):
+                $CanvasLayer/Menu/Settings.read_save()
                 state = "animate"
                 age = 0
                 $Music.play()
