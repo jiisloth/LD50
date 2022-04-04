@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SF-breathe.mp3-fbac86b9fa15d09e468c10657f6c0a35.mp3str"
+
+[deps]
+
+source_file="res://assets/SF-breathe.mp3"
+dest_files=[ "res://.import/SF-breathe.mp3-fbac86b9fa15d09e468c10657f6c0a35.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://Magma.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://CubeDropper.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/krakenpinenoise.mp3" type="AudioStream" id=6]
 
 [node name="Level" type="Spatial"]
 script = ExtResource( 1 )
@@ -17,3 +18,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.5278, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+bus = "music"

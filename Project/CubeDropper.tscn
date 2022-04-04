@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://CubeDropper.gd" type="Script" id=1]
 [ext_resource path="res://Cube.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Orb.tscn" type="PackedScene" id=3]
 
 [node name="CubeDropper" type="Spatial"]
 script = ExtResource( 1 )
 Cube = ExtResource( 2 )
+Orb = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.73651, 11.31 )
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

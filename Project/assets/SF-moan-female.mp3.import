@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SF-moan-female.mp3-9ed46e74d5e33a94b95849255a5f74ec.mp3str"
+
+[deps]
+
+source_file="res://assets/SF-moan-female.mp3"
+dest_files=[ "res://.import/SF-moan-female.mp3-9ed46e74d5e33a94b95849255a5f74ec.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
